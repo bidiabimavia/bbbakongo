@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bídia Bimávia - Comidas do Norte de Angola</title>
+    <style>
+        :root {
+            --primary: #8B4513; /* Castanho terroso */
+            --secondary: #F5DEB3; /* Bege claro */
+            --accent: #CD853F; /* Castanho claro */
+            --text: #333;
+            --light: #FFF8DC;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('cabrite.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            color: white;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .slogan {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--primary);
+            transform: scale(1.05);
+        }
+        
+        /* Menu compacto */
+        
+        /* Menu compacto em linha única */
+        .compact-nav {
+            background-color: #8B4513; /* Castanho terroso */
+            height: 15vh; /* 15% da altura do ecrã */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+        }
+        
+        .nav-list {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            height: 100%;
+            align-items: center;
+        }
+        
+        .nav-item {
+            flex: 1;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #F5DEB3; /* Bege claro */
+        }
+    
+        nav {
+            background-color: var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: 15vh; /* 15% da altura do ecrã */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 3px;
+        }
+        
+        section {
+            padding: 80px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        .about {
+            background-color: var(--secondary);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .menu {
+            background-color: var(--light);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .menu-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .menu-item-content {
+            padding: 20px;
+        }
+        
+        .menu-item h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .menu-item p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        .inicio {
+            width: 10px;
+            height: 25px;
+            margin-top: 10px;
+            object-fit: cover;
+        }
+        
+        
+        .team {
+            background-color: var(--secondary);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .team-member img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .team-member h3 {
+            margin: 15px 0 5px;
+            color: var(--primary);
+        }
+        
+        .team-member p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .slogan {
+                font-size: 1.2rem;
+            }
+            
+            nav {
+                height: auto;
+                padding: 10px 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="home">
+        <h1 class="logo">BÍDIA BIMAVÍA</h1>
+        <p class="slogan">Levamos o sabor autêntico do Norte de Angola até si</p>
+        <a href="#menu" class="btn">Conheça a nossa ementa</a>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#about">Sobre Nós</a></li>
+            <li><a href="#menu">Ementa</a></li>
+            <li><a href="#team">Equipa</a></li>
+            <li><a href="#contact">Contactos</a></li>
+        </ul>
+    </nav>
+    
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Sobre Nós</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>A Bídia Bimávia é uma empresa dedicada a levar os sabores autênticos da culinária do Norte de Angola a todos os apreciadores da boa comida. A nossa missão é preservar e partilhar as tradições gastronómicas angolanas, utilizando ingredientes frescos e técnicas tradicionais.</p>
+                    <p>Fundada no Lubango, a nossa equipa é composta por chefs experientes que dominam os segredos da culinária regional. Cada prato que servimos conta uma história e representa a riqueza cultural do nosso país.</p>
+                    <p>Vem experimentar uma explosão de sabores que te vai transportar diretamente para as terras do Norte de Angola!</p>
+                </div>
+                <div class="about-image">
+                    <img src="kizaca.jpg" alt="Cozinha tradicional angolana">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2>A Nossa Ementa</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="fumbua.jpg" alt="Fúmbua">
+                    <div class="menu-item-content">
+                        <h3>Fúmbua</h3>
+                        <p>Prato tradicional feito com folhas de mandioca, acompanhado de peixe fresco e molho de palma.</p>
+                        <p class="price">1.000,00 Kz</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="makayabo.jpg" alt="Makayabo">
+                    <div class="menu-item-content">
+                        <h3>Makayabo</h3>
+                        <p>Peixe seca tradicionalmente preparada, servida com funge e molho de gindungo.</p>
+                        <p class="price">1.000,00 Kz</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="katato.jpg" alt="Katato">
+                    <div class="menu-item-content">
+                        <h3>Katato</h3>
+                        <p>Delicioso prato de pequenos seres encontrados em árvores</p>
+                        <p class="price">500,00 Kz</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="cabrite.jpg" alt="Cabrité">
+                    <div class="menu-item-content">
+                        <h3>Cabrité</h3>
+                        <p>Carne de cabrito assada lentamente com especiarias tradicionais, servida com funge.</p>
+                        <p class="price">1.500,00 Kz</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="kizaca.jpg" alt="Sakamadesso">
+                    <div class="menu-item-content">
+                        <h3>Sakamadesso</h3>
+                        <p>Prato de feijão e kizaka preparado com óleo de palma, temperado com alho e cebola.</p>
+                        <p class="price">1.000,00 Kz</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="chiquanga.jpg" alt="Chiquanga">
+                    <div class="menu-item-content">
+                        <h3>Chiquanga</h3>
+                        <p>Alimento tradicional do Norte, semelhante ao funge de bombó.</p>
+                        <p class="price">500,00 Kz</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="pincho.jpg" alt="Pincho">
+                    <div class="menu-item-content">
+                        <h3>Pincho</h3>
+                        <p>Espetinhos de carne bovina ou de frango grelhados no carvão, temperados com piri-piri.</p>
+                        <p class="price">1.500,00 Kz</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="banana.jpg" alt="Banana Pão">
+                    <div class="menu-item-content">
+                        <h3>Banana Pão</h3>
+                        <p>Banana-da-terra frita ou cozida, servida como acompanhamento ou sobremesa.</p>
+                        <p class="price">500,00 Kz</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="team" class="team">
+        <div class="container">
+            <h2>A Nossa Equipa</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="marcos.jpg" alt="Maria Fernandes">
+                    <h3>Marcos de Sousa Novo</h3>
+                    <p>Director Executivo</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="sefora.jpg" alt="João Manuel">
+                    <h3>Séfora Muanza</h3>
+                    <p>Chef de Cozinha</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="lando.jpg" alt="Ana Quimbundo">
+                    <h3>Lando Teca</h3>
+                    <p>Gestor Financeiro</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="joridson.jpg" alt="Carlos Mbundo">
+                    <h3>Joridson Baciedi</h3>
+                    <p>Gerente de Marketing e desenvolvimento de Website</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="lando.jpg" alt="Luísa Capamba">
+                    <h3>Diamantina</h3>
+                    <p>Responsável por Eventos</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="jonilson.jpg" alt="Pedro Kassoma">
+                    <h3>Jonilson Anacleto</h3>
+                    <p>Responsável de atendimento e organização do espaço</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Teresa Ngola">
+                    <h3>Lissandro</h3>
+                    <p>Segurança</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://randomuser.me/api/portraits/men/88.jpg" alt="José Kiala">
+                    <h3>Ronnilson Leitão</h3>
+                    <p>Responsável por Fornecedores</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="container">
+            <div class="contact-info">
+                <h3>Contacte-nos</h3>
+                <p>Telefone: 949-413-354 / 927-969-553</p>
+                <p>Email: bbbakongo@gmail.com</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>&copy; 2025 Bídia Bimávia - Todos os direitos reservados</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Navegação suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Menu fixo
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.position = 'fixed';
+                nav.style.width = '100%';
+                nav.style.top = '0';
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.position = 'relative';
+                nav.style.boxShadow = 'none';
+            }
+        });
+        
+        // Animação dos itens da ementa
+        const menuItems = document.querySelectorAll('.menu-item');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        menuItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'all 0.5s ease';
+            observer.observe(item);
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
